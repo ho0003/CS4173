@@ -29,7 +29,8 @@ string Block::getHash()
 
 void Block::mineBlock(uint32_t nDifficulty) 
 {
-    char cstr[7];               // TODO Check this 
+    char cstr[8];               // TODO Check this 
+    // char cstr[nDifficulty + 1];
 
     for (uint32_t i = 0; i < nDifficulty; ++i) 
     {

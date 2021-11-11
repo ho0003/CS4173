@@ -1,6 +1,12 @@
+#pragma warning(disable : 4996)       // CHECK THIS: I put this here so that sprintf could work otherwise it'll complain about it being depreciated. 
+
 #include <cstring>
 #include <fstream>
 #include "sha256.h"
+#include <string.h>
+#include <string>
+
+using namespace std; 
 
 const unsigned int SHA256::sha256_k[64] = //UL = uint32
 { 0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
@@ -131,7 +137,10 @@ std::string sha256(std::string input)
     for (int i = 0; i < SHA256::DIGEST_SIZE; i++)
     {
         sprintf(buf + i * 2, "%02x", digest[i]);
-        sprintf_s(buf + i * 2, "%02x", digest[i]); 
+        //Take whatever is in digest[i], format it as %02x, put it in buff 
+
+       // sprintf_s(buf + (i*2), "%02x", digest[i]);
+        
     }
        
         
